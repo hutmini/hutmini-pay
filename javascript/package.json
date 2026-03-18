@@ -1,0 +1,20 @@
+{
+  "name": "@hutmini/pay",
+  "version": "0.1.0",
+  "description": "The Next-Gen Web3 Payment Protocol for AI Agent Economies (JS SDK)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["web3", "stealth-address", "payments", "ai-agents", "base"],
+  "author": "hutmini",
+  "license": "MIT",
+  "dependencies": {
+    "ethers": "^6.13.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
