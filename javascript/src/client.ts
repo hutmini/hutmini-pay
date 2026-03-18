@@ -13,6 +13,7 @@ export interface StealthPaymentReceipt {
 export class ProClient {
   private apiKey: string;
   private engine: typeof HutStealthEngine;
+  private baseUrl: string = "https://api.hutmini.com/api/v1";
 
   constructor(apiKey: string) {
     this.apiKey = apiKey;
@@ -21,7 +22,7 @@ export class ProClient {
   }
 
   /**
-    * 执行隐私支付 (Simulation)
+    * 执行隐私支付
     */
   async executeStealthPay(
     receiverId: string,
@@ -29,26 +30,37 @@ export class ProClient {
     currency: string = "USDC"
   ): Promise<StealthPaymentReceipt> {
     console.log("🔒 隐私保护已开启 (NPM Mode)");
+
+    // 1. 查找接收方公钥
+    const pubKeyResp = await fetch(`${this.baseUrl}/agents/${receiverId}/pubkey`);
+    if (!pubKeyResp.ok) {
+        throw new Error(`Failed to discover agent ${receiverId}: ${await pubKeyResp.text()}`);
+    }
+    const { pub_key: receiverPubKey } = await pubKeyResp.json();
+
+    // 2. 本地生成隐身地址
+    const { stealthAddress, ephemeralPubKey } = this.engine.generateStealthAddress(receiverPubKey);
+
     console.log(`🚀 Initiating stealth payment of ${amount} ${currency} to ${receiverId}...`);
-
-    // 模拟公钥获取 (已验证的合法 Secp256k1 公钥)
-    const fakePubKey = "0x04253c1590a6baa20b1c9f01f968ce4582897582c1e45327b6921348f293d6710714177873d9e938dc56a507ff46fc5c066906045416ce62252fc1d218c239929c";
-
-    const { stealthAddress, ephemeralPubKey } = this.engine.generateStealthAddress(fakePubKey);
-
     console.log(`📡 正在向隐身地址 ${stealthAddress} 发起支付...`);
 
-    // 模拟链上交易哈希
-    const mockTxHash = "0x" + Math.random().toString(16).slice(2, 66).padEnd(64, '0');
+    // 3. 提交结算请求
+    const payResp = await fetch(`${this.baseUrl}/pay/execute`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            receiver_id: receiverId,
+            amount,
+            currency,
+            stealth_address: stealthAddress,
+            ephemeral_key: ephemeralPubKey
+        })
+    });
 
-    return {
-      status: "success",
-      receiver_id: receiverId,
-      stealth_address: stealthAddress,
-      ephemeral_key: ephemeralPubKey,
-      tx_hash: mockTxHash,
-      currency: currency,
-      amount: amount
-    };
+    if (!payResp.ok) {
+        throw new Error(`Payment execution failed: ${await payResp.text()}`);
+    }
+
+    return await payResp.json();
   }
 }
