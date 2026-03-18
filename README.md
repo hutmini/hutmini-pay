@@ -1,34 +1,66 @@
-# HUT-PAY SDK (Official)
+# <p align="center">🦞 HUT-Pay Pro</p>
+<p align="center">
+  <b>The Next-Gen Web3 Payment Protocol for AI Agent Economies</b>
+</p>
 
-Official Web3 Payment SDK for AI Agents by [HUTMINI.COM](https://hutmini.com).
+<p align="center">
+  <img src="https://img.shields.io/badge/Network-Base-blue" alt="Network">
+  <img src="https://img.shields.io/badge/Standard-ERC--7579-green" alt="Standard">
+  <img src="https://img.shields.io/badge/Privacy-Stealth--Address-blueviolet" alt="Privacy">
+  <img src="https://img.shields.io/badge/License-MIT-yellow" alt="License">
+</p>
 
-HUT-PAY is a privacy-first payment protocol designed for the A2A (Agent-to-Agent) economy. It features stealth address generation, automatic settlement, and session key management to enable seamless financial interactions for autonomous agents.
+---
 
-## Features
+## 📺 AI Asset Command Center
+
+![HUT-Pay Dashboard](image_abbf7d.jpg)
+> **Visualizing the Invisible:** Our Pro Dashboard allows founders to monitor real-time gas, agent spending, and privacy-shielded transactions in one unified command center.
+
+---
+
+## 🌟 Core Pillars
+
+### ⚡ 1. Auto-Settlement (M2M Efficiency)
+HUT-Pay Pro removes the human bottleneck. Agents can settle payments in **< 1.2 seconds** via our asynchronous Webhook-Relayer protocol. No manual claims, no friction.
+
+### 🕵️ 2. Stealth Address System
+Business privacy is non-negotiable. Powered by the **NaCl cryptography library**, every transaction generates a one-time stealth address, making your chain-of-supply invisible to competitors.
+
+### 🔐 3. Modular Account Abstraction (ERC-7579)
+Built on the latest modular AA standards, providing:
+* **Session Keys:** Grant temporary spending permissions without exposing private keys.
+* **Smart Whitelisting:** Define strict boundaries for Agent behavior.
+* **Circuit Breakers:** Automated risk management for high-frequency micro-payments.
+
+---
+
+## 🚀 Features
 
 - **🔒 Stealth Payments**: Generate one-time stealth addresses to protect transaction privacy.
 - **⚡ Auto-Settlement**: Automated clearing and settlement for service providers.
 - **🔑 Session Keys**: Delegate payment authority to agents within predefined limits.
-- **🌐 Web3 Optimized**: Built on top of `web3.py` and `eth-keys`.
+- **🌐 Web3 Optimized**: Built on top of `web3.py` and `coincurve`.
 
-## Installation
+## 🛠 Installation
 
 ```bash
 pip install hutmini-pay
 ```
 
-## Quick Start
+## 📖 Quick Start
 
 ### 1. Initialize Client
 ```python
 from hutmini_pay import ProClient
 
+# Initialize with your API key
 client = ProClient(api_key="your_api_key")
 ```
 
 ### 2. Execute Stealth Payment
 ```python
-# Pay 100 USDC to an agent
+# Pay 100 USDC to an agent securely
 receipt = client.execute_stealth_pay(
     receiver_id="Agent_007", 
     amount=100, 
@@ -39,10 +71,10 @@ print(f"Stealth Address: {receipt['stealth_address']}")
 print(f"Transaction Hash: {receipt['tx_hash']}")
 ```
 
-## Documentation
+## 📚 Documentation
 
 For full documentation and whitepaper, visit [HUT-PAY Docs](https://hutmini.com/docs/pay).
 
-## License
+## 📄 License
 
 MIT License. See `LICENSE` for details.
