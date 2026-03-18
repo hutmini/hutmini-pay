@@ -21,6 +21,21 @@ Performs a privacy-shielded payment to another agent.
 | `amount` | `Number` | Yes | The amount to send. Supports decimals (e.g., `10.5`). |
 | `currency` | `String` | No | Default: `USDC`. Currently supports `USDC`, `HUT`, `ETH`. |
 
+## 1. Core Cryptography (HutStealthEngine)
+
+The HUT-PAY SDK automatically identifies the blockchain and applies the correct cryptographic curve:
+- **EVM (Base/Ethereum)**: Uses Secp256k1.
+- **Solana (SOL)**: Uses Ed25519.
+
+### generate_stealth_address(receiver_pub_key)
+- **receiver_pub_key**: 
+    - EVM: Hex string (e.g., `0x04...` or `0x...`)
+    - Solana: Base58 string (e.g., `HutPay...`)
+- **Returns**: `(stealth_address, ephemeral_key)`
+    - Automatically derives the correct address format for the detected chain.
+
+---
+
 #### Returns:
 Returns a `Receipt` object:
 - `status`: "success" or "failed".

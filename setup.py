@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="hutmini-pay",
-    version="0.1.0",
+    name="@hutmini/pay",
+    version="0.1.1",
     author="HUTMINI",
     author_email="admin@hutmini.com",
     description="Official Web3 Payment SDK for AI Agents by HUTMINI.COM",

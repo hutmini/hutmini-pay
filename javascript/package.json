@@ -1,6 +1,6 @@
 {
   "name": "@hutmini/pay",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Next-Gen Web3 Payment Protocol for AI Agent Economies (JS SDK)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,7 +12,9 @@
   "author": "hutmini",
   "license": "MIT",
   "dependencies": {
-    "ethers": "^6.13.2"
+    "ethers": "^6.13.2",
+    "bs58": "^6.0.0",
+    "tweetnacl": "^1.0.3"
   },
   "devDependencies": {
     "typescript": "^5.5.4"
