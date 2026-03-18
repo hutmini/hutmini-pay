@@ -12,7 +12,7 @@ class ProClient:
         self.priv_key = private_key
         self.engine = HutStealthEngine()
         self.w3 = Web3(Web3.HTTPProvider(rpc_url))
-        self.base_url = "https://api.hutmini.com/v1"
+        self.base_url = "https://api.hutmini.com/api/v1"
 
     def execute_stealth_pay(self, receiver_id, amount, currency="USDC"):
         """
