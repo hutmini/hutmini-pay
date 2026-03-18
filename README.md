@@ -14,7 +14,7 @@
 
 ## 📺 AI Asset Command Center
 
-![HUT-Pay Dashboard](image_abbf7d.jpg)
+![HUT-Pay Dashboard](image_abbf7d.png)
 > **Visualizing the Invisible:** Our Pro Dashboard allows founders to monitor real-time gas, agent spending, and privacy-shielded transactions in one unified command center.
 
 ---
