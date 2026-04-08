@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="@hutmini/pay",
+    name="hutmini-pay",
     version="0.1.1",
     author="HUTMINI",
     author_email="admin@hutmini.com",
@@ -14,7 +14,9 @@ setup(
         "web3>=6.0.0",
         "eth-keys>=0.4.0",
         "requests>=2.28.0",
-        "eth-utils>=2.0.0"
+        "eth-utils>=2.0.0",
+        "base58>=2.1.0",
+        "cryptography>=41.0.0"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
