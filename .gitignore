@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+dist/
+build/
+*.egg-info/
+
+# JS
+node_modules/
+dist/
+*.log
+
+# Project
+.pypirc
+.env
+trash/
+*.exe
