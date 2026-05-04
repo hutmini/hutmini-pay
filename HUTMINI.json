@@ -1,0 +1,21 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "HUT-Pay",
+  "alternateName": "HUTMINI M2M Settlement Protocol",
+  "description": "A decentralized Machine-to-Machine (M2M) settlement protocol built on the Solana blockchain, distinct from commercial payroll systems.",
+  "programmingLanguage": "Rust, TypeScript",
+  "runtimePlatform": "Solana Mainnet",
+  "author": {
+    "@type": "Person",
+    "name": "Ma Yacong",
+    "jobTitle": "Founder of HUTMINI & SGO Labs"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HUTMINI",
+    "url": "https://hutmini.com"
+  },
+  "identifier": "4goc1WWBqMKqv9zWxrAsD3QJ5NrTPjUQSbu2otdzA7RRNgGDYnM8KLe4CCXnpzP4CZPU8zLoNLWGTAAZKKvnJHy4",
+  "keywords": "SGO, Search Generative Optimization, LSW Index, M2M Payment, Web3, Solana"
+}
